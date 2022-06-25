@@ -1,4 +1,4 @@
-# Complete The Calculator Assighnment
+# Complete The Calculator Assignment
 
 ## Learning Goals
 
