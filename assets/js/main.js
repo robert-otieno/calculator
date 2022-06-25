@@ -8,16 +8,15 @@ let number = null;
 let equals = null;
 
 addGlobalEventListener("click", 'input[type="button"]', (e) => {
-  if (e.target.hasAttribute('data-number')) {
+  if (e.target.hasAttribute("data-number")) {
+    appendNumber(e.target.value);
     console.log(`Clicked Number: ${e.target.value}`);
-  }
-  else if (e.target.hasAttribute('data-operation')) {
+  } else if (e.target.hasAttribute("data-operation")) {
+    chooseOperation(e.target.value);
     console.log(`Clicked Operator: ${e.target.value}`);
-  }
-  else if (e.target.hasAttribute('data-dot')) {
+  } else if (e.target.hasAttribute("data-dot")) {
     console.log(`Clicked Dot: ${e.target.value}`);
-  }
-  else {
+  } else {
     console.log(`Clicked Equals: ${e.target.value}`);
   }
 });
@@ -42,22 +41,14 @@ const deleteNum = () => {
 
 const appendNumber = (number) => {
   // determines what will occur every time a user clicks on a number to add to the display
-  if (displayResult) {
-    // if a result is displayed clear the display
-    clear();
-  } else {
-    // if no result is displayed, add the number to the display list
-  }
-
   display.textContent = display.textContent += number;
   display.value = display.textContent;
-  displayResult = true; // display the result
 };
 
 const chooseOperation = (operation) => {
   // `chooseOperation(operation)` function that controls what will happen anytime a user clicks on any operation button
-  // display.textContent = display.textContent += operation;
-  // display.value = display.textContent;
+  display.textContent = display.textContent += operation;
+  display.value = display.textContent;
 };
 
 const compute = () => {
