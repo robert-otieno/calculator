@@ -1,7 +1,7 @@
 // *** Write your code here***
 
 let displayResult = document.querySelector('input[type="text"]');
-let result = '';
+let result = "";
 
 addGlobalEventListener("click", 'input[type="button"]', (e) => {
   if (e.target.hasAttribute("data-number")) {
@@ -37,12 +37,12 @@ const deleteVal = () => {
 }
 // determines what will occur every time a user clicks on a number to add to the display
 const appendNumber = (number) => {
-  result = displayResult.textContent = displayResult.textContent += number;
+  result += parseInt(number)
   updateDisplay();
 }
 // `chooseOperation(operation)` function that controls what will happen anytime a user clicks on any operation button
 const chooseOperation = (operation) => {
-  result = displayResult.textContent = displayResult.textContent += operation;
+  result += operation;
   updateDisplay();
 }
 // takes the values inside your calculator and displays the result
