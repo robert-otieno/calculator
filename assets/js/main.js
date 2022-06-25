@@ -4,7 +4,7 @@ let display = document.querySelector('input[type="text"]');
 
 let dot = null;
 // let operator = null;
-// let operands = [];
+let operands = [];
 // let equals = null;
 
 addGlobalEventListener("click", 'input[type="button"]', (e) => {
@@ -16,6 +16,10 @@ addGlobalEventListener("click", 'input[type="button"]', (e) => {
     // console.log(`Clicked Operator: ${typeof e.target.value}`);
   } else if (e.target.hasAttribute("data-dot")) {
     console.log(`Clicked Dot: ${e.target.value}`);
+  } else if (e.target.hasAttribute("data-clear")) {
+    clear();
+  } else if (e.target.hasAttribute("data-delete")) {
+    deleteVal();
   } else {
     // console.log(`Clicked Equals: ${e.target.value}`);
     compute();
@@ -28,18 +32,20 @@ function addGlobalEventListener(type, selector, callback) {
   });
 }
 
-const clear = () => {
-  // `clear()` function, which will clear all the different variables
-};
+// `clear()` function, which will clear all the different variables
+const clear = () => display.value = '';
 
-const deleteNum = () => {
+const deleteVal = () => {
   // `delete()` for clearing a single number
+  display.value = display.value.slice(0, -1);
 };
 
 // determines what will occur every time a user clicks on a number to add to the display
 const appendNumber = (number) => {
   display.textContent = display.textContent += number;
   display.value = display.textContent;
+
+  operands.push(parseInt(number));
 };
 
 // `chooseOperation(operation)` function that controls what will happen anytime a user clicks on any operation button
