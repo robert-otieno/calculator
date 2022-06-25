@@ -37,7 +37,7 @@ const deleteVal = () => {
 }
 // determines what will occur every time a user clicks on a number to add to the display
 const appendNumber = (number) => {
-  result += parseInt(number)
+  result += number
   updateDisplay();
 }
 // `chooseOperation(operation)` function that controls what will happen anytime a user clicks on any operation button
